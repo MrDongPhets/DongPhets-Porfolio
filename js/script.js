@@ -14,8 +14,8 @@ $(document).ready(function() {
     }
 
     // Check for saved theme preference or default to dark mode
-const currentTheme = localStorage.getItem('theme') || 'dark';
-setTheme(currentTheme);
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(currentTheme);
 
     // Theme toggle click event
     $('#themeToggle').on('click', function() {
@@ -34,17 +34,20 @@ setTheme(currentTheme);
     });
 
     // Close mobile menu when clicking on a link
-    $('.mobile-nav-links a').on('click', function() {
+    $('.mobile-nav-links a').on('click', function(e) {
         $('.hamburger').removeClass('active');
         $('.mobile-menu').removeClass('active');
         $('body').removeClass('menu-open');
         
-        // Smooth scroll
+        // Smooth scroll only if hash exists and element is on the same page
         if (this.hash !== '') {
-            const hash = this.hash;
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top - 80
-            }, 800);
+            const targetElement = $(this.hash);
+            if (targetElement.length) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: targetElement.offset().top - 80
+                }, 800);
+            }
         }
     });
 
@@ -71,12 +74,14 @@ setTheme(currentTheme);
     // Smooth scrolling for navigation links
     $('.nav-links a, .cta-button, .footer-links a').on('click', function(e) {
         if (this.hash !== '') {
-            e.preventDefault();
-            const hash = this.hash;
-            
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top - 80
-            }, 800);
+            const targetElement = $(this.hash);
+            // Only prevent default and scroll if element exists on current page
+            if (targetElement.length) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: targetElement.offset().top - 80
+                }, 800);
+            }
         }
     });
 
@@ -108,21 +113,6 @@ setTheme(currentTheme);
     $(window).on('scroll', fadeInOnScroll);
     fadeInOnScroll(); // Initial check
 
-    // Skill items hover effect
-    // $('.skill-item').hover(
-    //     function() {
-    //         $(this).find('i').css({
-    //             'transform': 'scale(1.2) rotate(5deg)',
-    //             'transition': 'all 0.3s ease'
-    //         });
-    //     },
-    //     function() {
-    //         $(this).find('i').css({
-    //             'transform': 'scale(1) rotate(0deg)'
-    //         });
-    //     }
-    // );
-
     // Portfolio item hover effect
     $('.portfolio-item').hover(
         function() {
@@ -138,7 +128,7 @@ setTheme(currentTheme);
         }
     );
 
-        $('.portfolio-item-1').hover(
+    $('.portfolio-item-1').hover(
         function() {
             $(this).find('img').css({
                 'transform': 'scale(1.05)',
@@ -166,21 +156,16 @@ setTheme(currentTheme);
         });
         
         $('.nav-links a, .mobile-nav-links a').removeClass('active');
-        $('.nav-links a[href="#' + current + '"], .mobile-nav-links a[href="#' + current + '"]').addClass('active');
+        if (current) {
+            $('.nav-links a[href="#' + current + '"], .mobile-nav-links a[href="#' + current + '"]').addClass('active');
+        }
     });
-
-    // Parallax effect for hero image
-    // $(window).on('scroll', function() {
-    //     const scrolled = $(window).scrollTop();
-    //     if ($(window).width() > 768) {
-    //         $('.hero-image img').css('transform', 'translateY(' + (scrolled * 0.3) + 'px)');
-    //     }
-    // });
 
     // Counter animation for skills (optional)
     let counted = false;
     $(window).on('scroll', function() {
-        if (!counted && $(window).scrollTop() > $('.skills').offset().top - 500) {
+        const skillsSection = $('.skills');
+        if (skillsSection.length && !counted && $(window).scrollTop() > skillsSection.offset().top - 500) {
             counted = true;
             $('.skill-item').each(function(index) {
                 $(this).delay(index * 100).fadeIn(500);
@@ -205,7 +190,7 @@ setTheme(currentTheme);
 
     // View all projects button animation
     $('.view-all').on('click', function(e) {
-        e.preventDefault();
+        // Don't prevent default - let it navigate to projects.html
         $(this).animate({
             'padding-left': '30px'
         }, 200, function() {
@@ -244,40 +229,41 @@ setTheme(currentTheme);
 
 });
 
- $("#myForm").on("submit", function (event) {
-   event.preventDefault(); // Prevent default form submission
+// Form submission - keep outside document.ready to ensure it works
+$("#myForm").on("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
 
-   // Serialize form data
-   var formData = $(this).serialize();
+    // Serialize form data
+    var formData = $(this).serialize();
 
-   // Submit the form using AJAX
-   $.ajax({
-     url: "https://api.web3forms.com/submit",
-     method: "POST",
-     data: formData,
-     success: function (response) {
-       // Always show the thank you message regardless of the response
-       Swal.fire({
-         title: "Thank you!",
-         text: "Your message has been submitted successfully.",
-         icon: "success",
-         confirmButtonText: "OK",
-       });
+    // Submit the form using AJAX
+    $.ajax({
+        url: "https://api.web3forms.com/submit",
+        method: "POST",
+        data: formData,
+        success: function (response) {
+            // Always show the thank you message regardless of the response
+            Swal.fire({
+                title: "Thank you!",
+                text: "Your message has been submitted successfully.",
+                icon: "success",
+                confirmButtonText: "OK",
+            });
 
-       // Optionally reset the form fields
-       $("#myForm")[0].reset();
-     },
-     error: function (xhr, status, error) {
-       // Even if there's an error, still show the thank you message
-       Swal.fire({
-         title: "Thank you!",
-         text: "Your message has been submitted successfully.",
-         icon: "success",
-         confirmButtonText: "OK",
-       });
+            // Optionally reset the form fields
+            $("#myForm")[0].reset();
+        },
+        error: function (xhr, status, error) {
+            // Even if there's an error, still show the thank you message
+            Swal.fire({
+                title: "Thank you!",
+                text: "Your message has been submitted successfully.",
+                icon: "success",
+                confirmButtonText: "OK",
+            });
 
-       // Optionally reset the form fields
-       $("#myForm")[0].reset();
-     },
-   });
- });
+            // Optionally reset the form fields
+            $("#myForm")[0].reset();
+        },
+    });
+});
