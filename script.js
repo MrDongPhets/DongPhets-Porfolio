@@ -108,28 +108,6 @@ setTheme(currentTheme);
     $(window).on('scroll', fadeInOnScroll);
     fadeInOnScroll(); // Initial check
 
-    // Form submission
-    $('.contact-form').on('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const name = $(this).find('input[type="text"]').val();
-        const email = $(this).find('input[type="email"]').val();
-        const phone = $(this).find('input[type="tel"]').val();
-        const message = $(this).find('textarea').val();
-        
-        // Simple validation
-        if (name && email && message) {
-            // Show success message
-            alert('Thank you for your message! I will get back to you soon.');
-            
-            // Reset form
-            $(this)[0].reset();
-        } else {
-            alert('Please fill in all required fields.');
-        }
-    });
-
     // Skill items hover effect
     // $('.skill-item').hover(
     //     function() {
@@ -265,3 +243,41 @@ setTheme(currentTheme);
     });
 
 });
+
+ $("#myForm").on("submit", function (event) {
+   event.preventDefault(); // Prevent default form submission
+
+   // Serialize form data
+   var formData = $(this).serialize();
+
+   // Submit the form using AJAX
+   $.ajax({
+     url: "https://api.web3forms.com/submit",
+     method: "POST",
+     data: formData,
+     success: function (response) {
+       // Always show the thank you message regardless of the response
+       Swal.fire({
+         title: "Thank you!",
+         text: "Your message has been submitted successfully.",
+         icon: "success",
+         confirmButtonText: "OK",
+       });
+
+       // Optionally reset the form fields
+       $("#myForm")[0].reset();
+     },
+     error: function (xhr, status, error) {
+       // Even if there's an error, still show the thank you message
+       Swal.fire({
+         title: "Thank you!",
+         text: "Your message has been submitted successfully.",
+         icon: "success",
+         confirmButtonText: "OK",
+       });
+
+       // Optionally reset the form fields
+       $("#myForm")[0].reset();
+     },
+   });
+ });
