@@ -1,6 +1,9 @@
 $(document).ready(function() {
     
-    // Theme Toggle Functionality
+    // ===== DETECT MOBILE/TABLET =====
+    const isMobile = window.innerWidth <= 768;
+    
+    // ===== THEME TOGGLE =====
     function setTheme(theme) {
         if (theme === 'light') {
             $('body').addClass('light-mode');
@@ -13,11 +16,9 @@ $(document).ready(function() {
         }
     }
 
-    // Check for saved theme preference or default to dark mode
     const currentTheme = localStorage.getItem('theme') || 'dark';
     setTheme(currentTheme);
 
-    // Theme toggle click event
     $('#themeToggle').on('click', function() {
         if ($('body').hasClass('light-mode')) {
             setTheme('dark');
@@ -26,29 +27,80 @@ $(document).ready(function() {
         }
     });
 
-    // Hamburger menu toggle
-    $('.hamburger').on('click', function() {
-        $(this).toggleClass('active');
-        $('.mobile-menu').toggleClass('active');
-        $('body').toggleClass('menu-open');
+    // ===== PAGE LOADER =====
+    $(window).on('load', function() {
+        setTimeout(function() {
+            $('.page-loader').addClass('hide');
+        }, 1000);
     });
 
-    // Close mobile menu when clicking on a link
-    $('.mobile-nav-links a').on('click', function(e) {
-        $('.hamburger').removeClass('active');
-        $('.mobile-menu').removeClass('active');
-        $('body').removeClass('menu-open');
-        
-        // Smooth scroll only if hash exists and element is on the same page
+    // ===== NAVIGATION =====
+    // Navbar scroll effect
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 50) {
+            $('#navbar').addClass('scrolled');
+        } else {
+            $('#navbar').removeClass('scrolled');
+        }
+    });
+
+    // Add navbar scroll styles
+    if (!$('#navbar-scroll-styles').length) {
+        $('<style id="navbar-scroll-styles">')
+            .html(`
+                #navbar.scrolled {
+                    background: #1a1d29;
+                    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+                    padding: 15px;
+                }
+                body.light-mode #navbar.scrolled {
+                    background: rgba(255, 255, 255, 0.95);
+                    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+                }
+            `)
+            .appendTo('head');
+    }
+
+    // Smooth scroll for all anchor links
+    $('a[href^="#"]').on('click', function(e) {
         if (this.hash !== '') {
             const targetElement = $(this.hash);
             if (targetElement.length) {
                 e.preventDefault();
                 $('html, body').animate({
                     scrollTop: targetElement.offset().top - 80
-                }, 800);
+                }, 800, 'swing');
+                
+                // Close mobile menu if open
+                $('.hamburger').removeClass('active');
+                $('.mobile-menu').removeClass('active');
+                $('body').removeClass('menu-open');
             }
         }
+    });
+
+    // Active navigation link based on scroll position
+    $(window).on('scroll', function() {
+        let current = '';
+        
+        $('section').each(function() {
+            const sectionTop = $(this).offset().top;
+            if ($(window).scrollTop() >= sectionTop - 100) {
+                current = $(this).attr('id');
+            }
+        });
+        
+        $('.nav-links a, .mobile-nav-links a').removeClass('active');
+        if (current) {
+            $('.nav-links a[href="#' + current + '"], .mobile-nav-links a[href="#' + current + '"]').addClass('active');
+        }
+    });
+
+    // ===== MOBILE MENU =====
+    $('.hamburger').on('click', function() {
+        $(this).toggleClass('active');
+        $('.mobile-menu').toggleClass('active');
+        $('body').toggleClass('menu-open');
     });
 
     // Close mobile menu when clicking outside
@@ -62,207 +114,292 @@ $(document).ready(function() {
         }
     });
 
-    // Navbar scroll effect
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 50) {
-            $('#navbar').addClass('scrolled');
-        } else {
-            $('#navbar').removeClass('scrolled');
-        }
-    });
-
-    // Smooth scrolling for navigation links
-    $('.nav-links a, .cta-button, .footer-links a').on('click', function(e) {
-        if (this.hash !== '') {
-            const targetElement = $(this.hash);
-            // Only prevent default and scroll if element exists on current page
-            if (targetElement.length) {
-                e.preventDefault();
-                $('html, body').animate({
-                    scrollTop: targetElement.offset().top - 80
-                }, 800);
-            }
-        }
-    });
-
-    // Fade-in animation on scroll
-    function fadeInOnScroll() {
-        $('.about-item, .skill-item, .portfolio-item').each(function() {
-            const elementTop = $(this).offset().top;
-            const elementBottom = elementTop + $(this).outerHeight();
-            const viewportTop = $(window).scrollTop();
-            const viewportBottom = viewportTop + $(window).height();
-            
-            if (elementBottom > viewportTop && elementTop < viewportBottom) {
-                $(this).css({
-                    'opacity': '1',
-                    'transform': 'translateY(0)'
+    // ===== SCROLL TO TOP BUTTON (Desktop only) =====
+    if (!isMobile) {
+        if (!$('.scroll-to-top').length) {
+            $('<button class="scroll-to-top"><i class="fas fa-arrow-up"></i></button>')
+                .appendTo('body')
+                .click(function() {
+                    $('html, body').animate({ scrollTop: 0 }, 800);
                 });
+        }
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('.scroll-to-top').addClass('show');
+            } else {
+                $('.scroll-to-top').removeClass('show');
             }
         });
     }
 
-    // Initial state for fade-in elements
-    $('.about-item, .skill-item, .portfolio-item').css({
-        'opacity': '0',
-        'transform': 'translateY(30px)',
-        'transition': 'all 0.6s ease-out'
+    // ===== SKILL ITEMS CLICK EFFECT (Desktop only) =====
+    if (!isMobile) {
+        $('.skill-item').on('click', function() {
+            $(this).addClass('clicked');
+            setTimeout(() => {
+                $(this).removeClass('clicked');
+            }, 300);
+        });
+
+        if (!$('#skill-click-styles').length) {
+            $('<style id="skill-click-styles">')
+                .html(`
+                    .skill-item.clicked {
+                        animation: skillPop 0.3s ease;
+                    }
+                    @keyframes skillPop {
+                        0% { transform: scale(1); }
+                        50% { transform: scale(0.95); }
+                        100% { transform: scale(1); }
+                    }
+                `)
+                .appendTo('head');
+        }
+    }
+
+    // ===== PORTFOLIO HOVER OVERLAY (Desktop only) =====
+    if (!isMobile) {
+        $('.portfolio-item, .portfolio-item-1').each(function() {
+                if (!$(this).find('.portfolio-overlay').length) {
+                    // Get the project ID from data attribute
+                    const projectId = $(this).data('project-id') || 'default';
+                    const projectLink = `project-detail.html?project=${projectId}`;
+                    
+                    $(this).append(`
+                        <div class="portfolio-overlay">
+                            <a href="${projectLink}" class="overlay-link">
+                                <div class="overlay-content">
+                                    <i class="fas fa-eye"></i>
+                                    <span>View Project</span>
+                                    <p class="project-subtitle">Click to see details</p>
+                                </div>
+                            </a>
+                        </div>
+                    `);
+                }
+            });
+
+        if (!$('#portfolio-overlay-styles').length) {
+            $('<style id="portfolio-overlay-styles">')
+                .html(`
+                    .portfolio-overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                        z-index: 2;
+                        cursor: pointer;
+                    }
+                    .portfolio-item:hover .portfolio-overlay,
+                    .portfolio-item-1:hover .portfolio-overlay {
+                        opacity: 1;
+                    }
+                    .overlay-content {
+                        text-align: center;
+                        color: white;
+                        transform: translateY(20px);
+                        transition: transform 0.3s ease;
+                    }
+                    .portfolio-item:hover .overlay-content,
+                    .portfolio-item-1:hover .overlay-content {
+                        transform: translateY(0);
+                    }
+                    .overlay-content i {
+                        font-size: 40px;
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+                    .overlay-content span {
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                `)
+                .appendTo('head');
+        }
+    }
+
+    // ===== PARALLAX EFFECT (Desktop only) =====
+    if (!isMobile) {
+        $(window).scroll(function() {
+            var scrolled = $(this).scrollTop();
+            
+            $('.hero-image').css('transform', 'translateY(' + (scrolled * 0.3) + 'px)');
+            $('.about-image-1').css('transform', 'translateY(' + (scrolled * 0.1) + 'px)');
+            $('.about-image-2').css('transform', 'translateY(' + (scrolled * -0.1) + 'px)');
+        });
+    }
+
+    // ===== RESUME DOWNLOAD NOTIFICATION =====
+    $('.resume-btn, .resume-nav-link, .floating-resume-btn a').on('click', function(e) {
+        showDownloadNotification();
     });
 
-    // Trigger fade-in on scroll
-    $(window).on('scroll', fadeInOnScroll);
-    fadeInOnScroll(); // Initial check
-
-    // Portfolio item hover effect
-    $('.portfolio-item').hover(
-        function() {
-            $(this).find('img').css({
-                'transform': 'scale(1.05)',
-                'transition': 'all 0.3s ease'
-            });
-        },
-        function() {
-            $(this).find('img').css({
-                'transform': 'scale(1)'
-            });
-        }
-    );
-
-    $('.portfolio-item-1').hover(
-        function() {
-            $(this).find('img').css({
-                'transform': 'scale(1.05)',
-                'transition': 'all 0.3s ease'
-            });
-        },
-        function() {
-            $(this).find('img').css({
-                'transform': 'scale(1)'
-            });
-        }
-    );
-
-    // Active navigation link based on scroll position
-    $(window).on('scroll', function() {
-        let current = '';
+    function showDownloadNotification() {
+        const notification = $('<div class="download-notification">')
+            .html('<i class="fas fa-check-circle"></i> Resume download started!')
+            .appendTo('body');
         
-        $('section').each(function() {
-            const sectionTop = $(this).offset().top;
-            const sectionHeight = $(this).height();
-            
-            if ($(window).scrollTop() >= sectionTop - 100) {
-                current = $(this).attr('id');
+        notification.css({
+            'position': 'fixed',
+            'top': '20px',
+            'right': '20px',
+            'background': '#4caf50',
+            'color': 'white',
+            'padding': '15px 25px',
+            'border-radius': '8px',
+            'box-shadow': '0 4px 15px rgba(0,0,0,0.2)',
+            'z-index': '10000',
+            'display': 'flex',
+            'align-items': 'center',
+            'gap': '10px',
+            'font-weight': '600',
+            'animation': 'slideInRight 0.5s ease'
+        });
+        
+        setTimeout(function() {
+            notification.fadeOut(400, function() {
+                $(this).remove();
+            });
+        }, 3000);
+    }
+
+    if (!$('#notification-styles').length) {
+        $('<style id="notification-styles">')
+            .html(`
+                @keyframes slideInRight {
+                    from {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+            `)
+            .appendTo('head');
+    }
+
+    // ===== IMAGE LAZY LOADING =====
+    $('img').each(function() {
+        $(this).on('load', function() {
+            $(this).addClass('loaded');
+        });
+        
+        if (this.complete) {
+            $(this).addClass('loaded');
+        }
+    });
+
+    if (!$('#image-load-styles').length) {
+        $('<style id="image-load-styles">')
+            .html(`
+                img {
+                    opacity: 0;
+                    transition: opacity 0.5s ease;
+                }
+                img.loaded {
+                    opacity: 1;
+                }
+            `)
+            .appendTo('head');
+    }
+
+    // ===== MOUSE TRAIL EFFECT (Desktop only) =====
+    if (!isMobile) {
+        $(document).mousemove(function(e) {
+            if ($('.mouse-trail').length < 20) {
+                let trail = $('<div class="mouse-trail"></div>');
+                $('body').append(trail);
+                
+                trail.css({
+                    left: e.pageX,
+                    top: e.pageY
+                });
+                
+                setTimeout(function() {
+                    trail.remove();
+                }, 500);
             }
         });
-        
-        $('.nav-links a, .mobile-nav-links a').removeClass('active');
-        if (current) {
-            $('.nav-links a[href="#' + current + '"], .mobile-nav-links a[href="#' + current + '"]').addClass('active');
+
+        if (!$('#mouse-trail-styles').length) {
+            $('<style id="mouse-trail-styles">')
+                .html(`
+                    .mouse-trail {
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        background: rgba(102, 126, 234, 0.3);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        animation: trailFade 0.5s ease-out forwards;
+                        z-index: 9999;
+                    }
+                    @keyframes trailFade {
+                        to {
+                            transform: scale(2);
+                            opacity: 0;
+                        }
+                    }
+                `)
+                .appendTo('head');
+        }
+    }
+
+    // ===== REFRESH AOS ON PAGE VISIBILITY =====
+    window.refreshAOS = function() {
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    };
+
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden && typeof AOS !== 'undefined') {
+            AOS.refresh();
         }
     });
 
-    // Counter animation for skills (optional)
-    let counted = false;
-    $(window).on('scroll', function() {
-        const skillsSection = $('.skills');
-        if (skillsSection.length && !counted && $(window).scrollTop() > skillsSection.offset().top - 500) {
-            counted = true;
-            $('.skill-item').each(function(index) {
-                $(this).delay(index * 100).fadeIn(500);
-            });
-        }
-    });
-
-    // Social links hover animation
-    $('.social-links a, .contact-social a, .footer-social a, .mobile-social a').hover(
-        function() {
-            $(this).css({
-                'transform': 'translateY(-5px) rotate(360deg)',
-                'transition': 'all 0.5s ease'
-            });
-        },
-        function() {
-            $(this).css({
-                'transform': 'translateY(0) rotate(0deg)'
-            });
-        }
-    );
-
-    // View all projects button animation
-    $('.view-all').on('click', function(e) {
-        // Don't prevent default - let it navigate to projects.html
-        $(this).animate({
-            'padding-left': '30px'
-        }, 200, function() {
-            $(this).animate({
-                'padding-left': '0'
-            }, 200);
-        });
-    });
-
-    // CTA button animation
-    $('.cta-button').hover(
-        function() {
-            $(this).find('i').css({
-                'transform': 'translateX(10px)',
-                'transition': 'all 0.3s ease'
-            });
-        },
-        function() {
-            $(this).find('i').css({
-                'transform': 'translateX(0)'
-            });
-        }
-    );
-
-    // Submit button animation
-    $('.submit-btn').on('mouseenter', function() {
-        $(this).find('i').css({
-            'transform': 'translateX(10px)',
-            'transition': 'all 0.3s ease'
-        });
-    }).on('mouseleave', function() {
-        $(this).find('i').css({
-            'transform': 'translateX(0)'
-        });
-    });
-
+    console.log('✨ Portfolio loaded successfully!');
+    if (isMobile) {
+        console.log('📱 Mobile mode: Heavy animations disabled for better performance');
+    }
 });
 
-// Form submission - keep outside document.ready to ensure it works
+// ===== FORM SUBMISSION (Outside document.ready) =====
 $("#myForm").on("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
-    // Serialize form data
     var formData = $(this).serialize();
 
-    // Submit the form using AJAX
     $.ajax({
         url: "https://api.web3forms.com/submit",
         method: "POST",
         data: formData,
         success: function (response) {
-            // Always show the thank you message regardless of the response
             Swal.fire({
                 title: "Thank you!",
                 text: "Your message has been submitted successfully.",
                 icon: "success",
                 confirmButtonText: "OK",
             });
-
-            // Optionally reset the form fields
             $("#myForm")[0].reset();
         },
         error: function (xhr, status, error) {
-            // Even if there's an error, still show the thank you message
             Swal.fire({
                 title: "Thank you!",
                 text: "Your message has been submitted successfully.",
                 icon: "success",
                 confirmButtonText: "OK",
             });
-
-            // Optionally reset the form fields
             $("#myForm")[0].reset();
         },
     });

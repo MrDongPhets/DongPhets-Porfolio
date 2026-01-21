@@ -51,6 +51,10 @@ html {
     scroll-behavior: smooth;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 /* Navigation */
 nav {
     display: flex;
@@ -655,7 +659,7 @@ body.light-mode .portfolio-item {
 .contact-social {
     position: absolute;
     right: 80px;
-    top: 150px;
+    top: 100px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -695,7 +699,7 @@ body.light-mode .portfolio-item {
 
 .form-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -1009,5 +1013,582 @@ footer {
 
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Resume Download Button - Add to your style.css */
+
+/* Main Resume Button (for hero section) */
+.resume-download {
+    margin-top: 30px;
+}
+
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.resume-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.resume-btn i {
+    font-size: 18px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Navigation Resume Link (if you add to nav) */
+.resume-nav-link {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 8px 20px !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.resume-nav-link:hover {
+    background: rgba(102, 126, 234, 0.2);
+    transform: scale(1.05);
+}
+
+/* Floating Resume Button (bottom right corner) */
+.floating-resume-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.floating-resume-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.floating-resume-btn a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.7);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(102, 126, 234, 0.8);
+    }
+}
+
+/* Dark mode support */
+body.dark-mode .resume-btn,
+body.dark-mode .floating-resume-btn a {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+body.dark-mode .resume-btn:hover,
+body.dark-mode .floating-resume-btn a:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-btn {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    
+    .floating-resume-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .floating-resume-btn a {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* ===== PAGE LOADER ===== */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.page-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    color: white;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loader-text {
+    font-size: 18px;
+    font-weight: 600;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ===== SMOOTH SCROLLING ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== NAVBAR ANIMATIONS ===== */
+#navbar {
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-links a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #667eea;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== BUTTON HOVER EFFECTS ===== */
+.cta-button, .submit-btn, .view-all {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+
+.cta-button:hover::before, .submit-btn:hover::before, .view-all:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover, .submit-btn:hover, .view-all:hover {
+    transform: translateY(-3px);
+
+}
+
+.cta-button i, .submit-btn i, .view-all i {
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover i, .submit-btn:hover i, .view-all:hover i {
+    transform: translateX(5px);
+}
+
+/* ===== SOCIAL LINKS ANIMATIONS ===== */
+.social-links a, .contact-social a, .footer-social a {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-links a::after, .contact-social a::after, .footer-social a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.social-links a:hover, .contact-social a:hover, .footer-social a:hover {
+    transform: translateY(-5px) scale(1.1);
+    color: #667eea;
+}
+
+.social-links a:hover::after, .contact-social a:hover::after, .footer-social a:hover::after {
+    width: 100%;
+}
+
+/* ===== SKILL ITEMS HOVER ===== */
+.skill-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.skill-item:hover::before {
+    opacity: 1;
+}
+
+.skill-item img, .skill-item i {
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover img, .skill-item:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+
+/* ===== THEME TOGGLE ANIMATION ===== */
+#themeToggle {
+    transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+
+#themeToggle i {
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode #themeToggle i {
+    transform: rotate(180deg);
+}
+
+/* ===== TAGS ANIMATION ===== */
+.portfolio-tags span {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.portfolio-tags span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    background: #667eea;
+    color: white;
+}
+
+/* ===== FOOTER AVATAR ===== */
+.footer-avatar {
+    transition: all 0.3s ease;
+}
+
+.footer-avatar:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* ===== SCROLL TO TOP BUTTON (Optional) ===== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* ===== PARALLAX EFFECT (Optional) ===== */
+.hero, .about, .portfolio {
+    position: relative;
+}
+
+/* ===== TYPING ANIMATION FOR HERO TEXT (Optional) ===== */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* ===== FLOATING ANIMATION ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-image img {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ===== RESPONSIVE ANIMATIONS ===== */
+@media (max-width: 768px) {
+    .skill-item:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+    
+    .portfolio-item:hover, .portfolio-item-1:hover {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* ===== DISABLE HOVER EFFECTS ON MOBILE/TABLET ===== */
+@media (max-width: 768px) {
+    
+    /* Disable all transform animations */
+    .skill-item:hover,
+    .portfolio-item:hover,
+    .portfolio-item-1:hover,
+    .social-links a:hover,
+    .contact-social a:hover,
+    .footer-social a:hover,
+    .cta-button:hover,
+    .submit-btn:hover,
+    .view-all:hover {
+        transform: none !important;
+    }
+    
+    /* Keep images static on mobile */
+    .portfolio-item:hover img,
+    .portfolio-item-1:hover img,
+    .about-image-1:hover img,
+    .about-image-2:hover img,
+    .hero-image:hover img {
+        transform: none !important;
+    }
+    
+    /* Remove floating animation on mobile */
+    .hero-image img {
+        animation: none !important;
+    }
+    
+    /* Disable parallax on mobile */
+    .hero-image,
+    .about-image-1,
+    .about-image-2 {
+        transform: none !important;
+    }
+    
+    /* Simplify button effects */
+    .cta-button::before,
+    .submit-btn::before,
+    .view-all::before {
+        display: none;
+    }
+    
+    /* Remove scale effects */
+    .skill-item:hover img,
+    .skill-item:hover i {
+        transform: none !important;
+    }
+    
+    /* Disable skill item before pseudo element */
+    .skill-item::before {
+        display: none;
+    }
+    
+    /* Static social icons on mobile */
+    .social-links a::after,
+    .contact-social a::after,
+    .footer-social a::after {
+        display: none;
+    }
+    
+    /* Disable theme toggle rotation */
+    #themeToggle:hover {
+        transform: none !important;
+    }
+    
+    /* Remove box shadow animations */
+    .skill-item:hover,
+    .portfolio-item:hover,
+    .portfolio-item-1:hover {
+        box-shadow: none !important;
+    }
+    
+    /* Ensure content is always visible */
+    .about-item,
+    .skill-item,
+    .portfolio-item,
+    .portfolio-item-1 {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    /* Disable scroll to top button on mobile */
+    .scroll-to-top {
+        display: none !important;
+    }
+    
+    /* Disable mouse trail on mobile */
+    .mouse-trail {
+        display: none !important;
+    }
+    
+    /* Make portfolio overlay always visible on mobile (tap to view) */
+    .portfolio-overlay {
+        display: none;
+    }
+    
+    /* Keep navigation underline static */
+    .nav-links a::before {
+        display: none;
+    }
+    
+    /* Static footer avatar */
+    .footer-avatar:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Remove portfolio tags animation */
+    .portfolio-tags span:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ===== MOBILE-SPECIFIC IMPROVEMENTS ===== */
+@media (max-width: 768px) {
+    
+    /* Ensure text is readable */
+    body {
+        font-size: 16px;
+    }
+    
+    /* Better spacing for mobile */
+    section {
+        padding: 40px 20px;
+    }
+    
+    /* Simpler transitions */
+    * {
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Disable complex animations */
+    @keyframes float,
+    @keyframes bounce,
+    @keyframes pulse,
+    @keyframes trailFade {
+        0%, 100% { transform: none; opacity: 1; }
+    }
+}
+
+/* ===== TABLET-SPECIFIC ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+    /* Subtle hover effects for tablet */
+    .skill-item:hover,
+    .portfolio-item:hover,
+    .portfolio-item-1:hover {
+        transform: translateY(-5px) !important;
+    }
+    
+    /* Keep some interactivity but simplified */
+    .cta-button:hover,
+    .submit-btn:hover {
+        transform: translateY(-2px) !important;
     }
 }
