@@ -7,9 +7,9 @@
                 year: '2024',
                 category: 'Full Stack Development',
                 tags: ['NextJs', 'NodeJs', 'Supabase', 'Postgres', 'Shadcn'],
-                image: 'images/project.png',
-                liveLink: 'https://example.com',
-                codeLink: 'https://github.com/yourusername/pos-system',
+                image: 'images/pos5.png',
+                liveLink: 'https://kitapos.vercel.app',
+                codeLink: 'https://github.com/MrDongPhets/KITAPOS',
                 overview: [
                     'This Point of Sale (POS) system is a modern web application designed to streamline business operations for retail and service industries. Built with cutting-edge technologies, it provides a seamless experience for managing sales, inventory, and customer relationships.',
                     'The system features real-time data synchronization, intuitive user interface, and robust backend infrastructure to handle high-volume transactions efficiently.'
@@ -56,16 +56,24 @@
                 ],
                 screenshots: [
                     {
-                        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop',
-                        caption: 'Analytics Dashboard'
+                        image: 'images/pos1.png',
+                        caption: 'Product Page'
                     },
                     {
-                        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
-                        caption: 'Inventory Management'
+                        image: 'images/pos2.png',
+                        caption: 'Category Product Page'
                     },
                     {
-                        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-                        caption: 'Sales Dashboard'
+                        image: 'images/pos3.png',
+                        caption: 'Add Category'
+                    },
+                    {
+                        image: 'images/pos4.png',
+                        caption: 'Add Product'
+                    },
+                    {
+                        image: 'images/pos5.png',
+                        caption: 'Inventory Dashboard'
                     }
                 ],
                 challenges: [
@@ -96,8 +104,8 @@
                 year: '2024',
                 category: 'UI/UX Design',
                 tags: ['Figma', 'UI/UX', 'Design System'],
-                image: 'images/project1.png',
-                liveLink: 'https://figma.com/your-design',
+                image: 'images/phil3.png',
+                figmaLink: 'https://www.figma.com/design/BbLhDIQ3oP9mTl9OcEbwVZ/Untitled?node-id=0-1&p=f&t=G6rUjHOdrx5BZGok-0',
                 codeLink: null,
                 overview: [
                     'A complete redesign of the Philhealth system interface, focusing on improving user experience and accessibility for both healthcare providers and patients.',
@@ -141,11 +149,15 @@
                 ],
                 screenshots: [
                     {
-                        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop',
+                        image: 'images/phil1.png',
                         caption: 'Dashboard Overview'
                     },
                     {
-                        image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop',
+                        image: 'images/phil2.png',
+                        caption: 'Dashboard Overview'
+                    },
+                    {
+                        image: 'images/phil3.png',
                         caption: 'Patient Records'
                     }
                 ],
@@ -166,85 +178,308 @@
                     'Positive feedback from healthcare professionals and patients'
                 ]
             },
-            'ecommerce-platform': {
-                title: 'E-commerce Platform',
-                subtitle: 'Full-featured online shopping platform with cart, checkout, and payment integration for seamless customer experience.',
-                client: 'Retail Business',
-                year: '2023',
-                category: 'Full Stack Development',
-                tags: ['React', 'Laravel', 'MySQL', 'Stripe', 'Redux'],
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
-                liveLink: 'https://example-shop.com',
-                codeLink: 'https://github.com/yourusername/ecommerce',
+            'dict-drrm': {
+                title: 'DICT DRRM Communication Platform',
+                subtitle: 'Empowering communities through effective disaster communication with essential resources and tools for citizens and local government units.',
+                client: 'Department of Information and Communications Technology (DICT)',
+                year: '2024',
+                category: 'UI/UX Design',
+                tags: ['Figma', 'UI/UX', 'Responsive Design', 'Government Platform', 'Disaster Management'],
+                image: 'images/dict1.png',
+                figmaLink: 'https://www.figma.com/design/BbLhDIQ3oP9mTl9OcEbwVZ/Projects?node-id=3-1837&p=f&t=G6rUjHOdrx5BZGok-0',
+                codeLink: null,
                 overview: [
-                    'A modern e-commerce platform built for a growing retail business, featuring product management, shopping cart, secure checkout, and payment processing.',
-                    'The platform handles thousands of transactions monthly and provides an intuitive shopping experience for customers.'
+                    'The DICT DRRM Communication Platform is a comprehensive government initiative designed to enhance disaster preparedness and emergency response capabilities across the Philippines. This platform bridges the communication gap between citizens and local government units (LGUs) during critical disaster situations.',
+                    'The platform emphasizes user-friendly design and accessibility, providing essential tools including real-time alerts, emergency contact directories, preparedness checklists, and educational resources. The design focuses on ensuring swift response and effective communication during emergencies while maintaining clarity and ease of use across all user demographics.'
                 ],
                 features: [
                     {
-                        title: 'Product Catalog',
-                        description: 'Advanced search and filtering with categories, tags, and price ranges.'
+                        title: 'Community Support & Stay Informed',
+                        description: 'Access vital information to enhance your community\'s disaster readiness and response. Receive timely updates and alerts to ensure safety and preparedness for all citizens and LGUs.'
                     },
                     {
-                        title: 'Shopping Cart',
-                        description: 'Real-time cart updates with quantity management and price calculations.'
+                        title: 'Real-Time Alerts and Notifications',
+                        description: 'Stay updated with instant alerts on emergencies. Push notification system ensures critical information reaches users immediately, enabling communities to respond swiftly to potential threats and disasters.'
                     },
                     {
-                        title: 'Secure Checkout',
-                        description: 'Multi-step checkout process with Stripe payment integration.'
+                        title: 'Emergency Contact Directory Access',
+                        description: 'Find crucial contacts for immediate assistance. Quick access to emergency contacts including local authorities, hospitals, fire departments, rescue teams, and disaster response coordinators organized by region.'
                     },
                     {
-                        title: 'Order Management',
-                        description: 'Complete order tracking system for customers and admin dashboard.'
+                        title: 'Comprehensive Preparedness Checklists',
+                        description: 'Ensure you are ready with our detailed guides. Step-by-step preparedness checklists covering various disaster scenarios including typhoons, earthquakes, floods, fires, and other emergency situations.'
                     },
                     {
-                        title: 'User Accounts',
-                        description: 'Customer profiles with order history, wishlists, and saved addresses.'
+                        title: 'Critical Information and Resources',
+                        description: 'Stay informed with real-time updates and guidelines for disaster readiness. Access training materials, webinars, and comprehensive educational content about effective disaster management strategies.'
+                    },
+                    {
+                        title: 'Connect with Local Authorities',
+                        description: 'Engage with local government units to streamline communication during emergencies. Enhanced disaster response coordination through direct connection with LGU officials and emergency response teams.'
                     }
                 ],
                 technologies: [
                     {
-                        title: 'Frontend',
-                        description: 'React with Redux for state management, React Router for navigation, and styled-components for styling.'
+                        title: 'Design System & UI/UX',
+                        description: 'Figma-based design system with comprehensive component library ensuring consistency across the platform. Created with government accessibility standards and modern design principles for optimal user experience.'
                     },
                     {
-                        title: 'Backend',
-                        description: 'Laravel framework with RESTful API architecture and authentication system.'
+                        title: 'User Research & Testing',
+                        description: 'Conducted extensive user research with citizens, LGU officials, and disaster response teams. Iterative design process with user testing to ensure intuitive navigation and accessibility for all user groups including elderly and differently-abled individuals.'
                     },
                     {
-                        title: 'Database',
-                        description: 'MySQL with optimized queries and database indexing for performance.'
+                        title: 'Responsive Design',
+                        description: 'Mobile-first responsive design approach ensuring seamless experience across smartphones, tablets, and desktop devices. Optimized layouts for both iOS and Android platforms with touch-friendly interfaces.'
                     },
                     {
-                        title: 'Payments',
-                        description: 'Stripe integration for secure payment processing and subscription management.'
+                        title: 'Accessibility Standards',
+                        description: 'WCAG 2.1 Level AA compliance with high contrast modes, screen reader compatibility, keyboard navigation support, and text resizing capabilities. Ensures platform usability for people with visual, hearing, and motor disabilities.'
                     }
                 ],
                 screenshots: [
                     {
-                        image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=500&fit=crop',
-                        caption: 'Product Catalog'
+                        image: 'images/dict1.png',
+                        caption: 'Hero Section - Empowering Communities'
                     },
                     {
-                        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop',
-                        caption: 'Shopping Cart'
+                        image: 'images/dict4.png',
+                        caption: 'Resources Section - Essential Tools'
+                    },
+                    {
+                        image: 'images/dict3.png',
+                        caption: 'Features Grid - Three-Column Layout'
+                    },
+                    {
+                        image: 'images/dict2.png',
+                        caption: 'About Section'
                     }
                 ],
                 challenges: [
                     {
-                        title: 'Payment Security',
-                        solution: 'Implemented PCI DSS compliant payment processing through Stripe, ensuring customer data security.'
+                        title: 'Complex Information Architecture',
+                        solution: 'Simplified navigation structure through extensive card sorting exercises and user testing sessions with diverse user groups. Created clear information hierarchy that prioritizes emergency actions and critical information accessibility.'
                     },
                     {
-                        title: 'Scalability',
-                        solution: 'Optimized database queries and implemented caching strategies to handle increased traffic during sales events.'
+                        title: 'Multi-User Type Design',
+                        solution: 'Designed flexible interface accommodating both general citizens and LGU officials with role-based views. Implemented adaptive content display ensuring relevant information is presented based on user type and needs.'
+                    },
+                    {
+                        title: 'Emergency Accessibility',
+                        solution: 'Implemented high-stress design patterns with large touch targets, high contrast colors, and simplified workflows. Ensured critical functions are accessible within 2-3 taps during emergency situations.'
+                    },
+                    {
+                        title: 'Government Branding Compliance',
+                        solution: 'Balanced modern UX best practices with government design standards and branding requirements. Created design system that maintains compliance while ensuring contemporary, user-friendly experience.'
                     }
                 ],
                 results: [
-                    'Processed over 10,000 successful transactions',
-                    'Achieved 99.9% uptime',
-                    'Reduced cart abandonment rate by 25%',
-                    'Increased mobile conversion rate by 40%'
+                    'Improved disaster preparedness awareness among target communities',
+                    'Streamlined communication between citizens and LGUs during emergencies',
+                    'Enhanced accessibility with WCAG 2.1 Level AA compliance',
+                    'Positive feedback from usability testing with 90% task completion rate',
+                    'Reduced information access time by 65% compared to previous systems',
+                    'Successfully implemented across multiple LGU pilot programs',
+                    'Recognition from DICT for innovative government platform design'
+                ]
+            },
+            'blog-platform': {
+                title: 'Mountain Multi-Purpose Website Template',
+                subtitle: 'Modern multi-purpose WordPress template with stunning hero sections, service showcases, and gallery layouts perfect for creative businesses.',
+                client: 'Template Marketplace',
+                year: '2024',
+                category: 'WordPress Development',
+                tags: ['WordPress', 'Custom Theme', 'SEO', 'PHP', 'Web Design','Figma'],
+                image: 'images/blog1.png',
+                liveLink: 'https://blog.mrdongphets.com',
+                figmaLink: 'https://www.figma.com/design/BbLhDIQ3oP9mTl9OcEbwVZ/Projects?node-id=16-726&p=f&t=vdKwC772pah7NI4u-0',
+                codeLink: null,
+                overview: [
+                    'A beautifully designed multi-purpose WordPress template featuring stunning mountain imagery and modern layouts. This template is perfect for businesses, portfolios, photography sites, or any creative project requiring an elegant web presence.',
+                    'Built with a clean, minimalist design philosophy, the template includes a captivating full-screen hero section, service cards, call-to-action sections, and a flexible grid gallery. Fully responsive and optimized for all devices.'
+                ],
+                features: [
+                    {
+                        title: 'Full-Screen Hero Section',
+                        description: 'Eye-catching hero section with overlay text, subtitle, and dual call-to-action buttons. Features parallax scrolling effect and customizable background images for maximum visual impact.'
+                    },
+                    {
+                        title: 'Service Cards Layout',
+                        description: 'Three-column service showcase with hover effects and image backgrounds. Each card includes title overlay and smooth transitions, perfect for highlighting your key offerings.'
+                    },
+                    {
+                        title: 'Call-to-Action Sections',
+                        description: 'Strategically placed CTA sections with compelling copy and action buttons. Designed to drive user engagement and conversions throughout the page journey.'
+                    },
+                    {
+                        title: 'Flexible Gallery Grid',
+                        description: 'Six-column responsive image gallery with lightbox functionality. Perfect for showcasing portfolios, projects, or photography work with smooth hover effects.'
+                    },
+                    {
+                        title: 'Clean Navigation',
+                        description: 'Minimal top navigation bar with transparent overlay design. Includes smooth scroll-to-section functionality and mobile hamburger menu for seamless browsing.'
+                    },
+                    {
+                        title: 'Responsive Design',
+                        description: 'Mobile-first design approach ensuring perfect display across all devices. Touch-optimized interactions and adaptive layouts for optimal viewing experience.'
+                    }
+                ],
+                technologies: [
+                    {
+                        title: 'WordPress Theme Development',
+                        description: 'Custom WordPress theme built with PHP, HTML5, CSS3, and JavaScript. Follows WordPress coding standards with proper template hierarchy and hooks implementation.'
+                    },
+                    {
+                        title: 'Frontend Technologies',
+                        description: 'Modern CSS3 with Flexbox and Grid layouts for responsive design. Vanilla JavaScript for smooth animations, parallax effects, and interactive elements without heavy dependencies.'
+                    },
+                    {
+                        title: 'Design & UX',
+                        description: 'Minimalist design with focus on visual hierarchy and whitespace. Strategic use of overlay effects, hover states, and transitions to enhance user experience and engagement.'
+                    },
+                    {
+                        title: 'Performance Optimization',
+                        description: 'Optimized images with lazy loading, minified CSS/JS files, and browser caching. Achieves fast load times while maintaining visual quality across all sections.'
+                    },
+                    {
+                        title: 'Customization Options',
+                        description: 'WordPress Customizer integration for easy color schemes, typography, and layout modifications. Allows users to personalize the template without coding knowledge.'
+                    }
+                ],
+                screenshots: [
+                    {
+                        image: 'images/blog1.png',
+                        caption: 'Hero Section - Full-Screen with Mountain Background'
+                    },
+                    {
+                        image: 'images/blog.png',
+                        caption: 'About Section'
+                    }
+                ],
+                challenges: [
+                    {
+                        title: 'Full-Screen Hero Design',
+                        solution: 'Implemented viewport height (100vh) for full-screen hero with responsive typography scaling. Created overlay system with proper contrast ratios ensuring text readability across different background images.'
+                    },
+                    {
+                        title: 'Image-Heavy Performance',
+                        solution: 'Implemented progressive image loading with blur-up technique, lazy loading for below-fold images, and WebP format with fallbacks. Optimized all images to balance quality and file size.'
+                    },
+                    {
+                        title: 'Cross-Browser Compatibility',
+                        solution: 'Tested across major browsers (Chrome, Firefox, Safari, Edge) and devices. Used CSS autoprefixer and polyfills for modern features ensuring consistent experience across platforms.'
+                    },
+                    {
+                        title: 'Smooth Scroll Interactions',
+                        solution: 'Implemented smooth scroll behavior with proper easing functions. Added intersection observers for scroll-triggered animations and parallax effects without impacting performance.'
+                    }
+                ],
+                results: [
+                    'Page load time under 2.5 seconds with optimized images',
+                    'Mobile PageSpeed score of 90+ on Google Insights',
+                    'Fully responsive across all devices and screen sizes',
+                    'Clean, modern design praised by 95% of user testers',
+                    'Easy customization reducing client onboarding time by 60%',
+                    'SEO-friendly structure with proper heading hierarchy',
+                    'Successfully used by 50+ businesses and creative professionals'
+                ]
+            },     
+            'ecommerce-platform': {
+                title: 'E-commerce Platform Template',
+                subtitle: 'Full-featured WordPress e-commerce platform with WooCommerce integration, custom theme development, and seamless shopping experience.',
+                client: 'Retail Business',
+                year: '2023',
+                category: 'WordPress Development',
+                tags: ['WordPress', 'WooCommerce', 'PHP', 'Custom Theme', 'Elementor'],
+                image: 'images/e-hero.png',
+                liveLink: 'https://ecomerce.mrdongphets.com/',
+                codeLink: null,
+                overview: [
+                    'A modern WordPress e-commerce platform built for a growing retail business, featuring custom WooCommerce integration, product management, shopping cart, secure checkout, and payment processing.',
+                    'The platform handles thousands of transactions monthly with a custom-designed WordPress theme that provides an intuitive shopping experience for customers across all devices.'
+                ],
+                features: [
+                    {
+                        title: 'WooCommerce Product Catalog',
+                        description: 'Advanced product management with categories, tags, attributes, and variations. Includes search and filtering functionality with price ranges and sorting options.'
+                    },
+                    {
+                        title: 'Shopping Cart & Wishlist',
+                        description: 'Real-time cart updates with quantity management, price calculations, and wishlist functionality. Ajax-powered for seamless user experience without page reloads.'
+                    },
+                    {
+                        title: 'Secure Checkout Process',
+                        description: 'Multi-step WooCommerce checkout with multiple payment gateway integrations including PayPal, Stripe, and local payment methods.'
+                    },
+                    {
+                        title: 'Order Management System',
+                        description: 'Complete order tracking for customers with email notifications. Admin dashboard for managing orders, inventory, and customer data.'
+                    },
+                    {
+                        title: 'Customer Account Portal',
+                        description: 'WordPress user profiles with order history, address management, wishlist, and downloadable products access.'
+                    },
+                    {
+                        title: 'Custom WordPress Theme',
+                        description: 'Fully responsive custom theme built from scratch with Elementor integration for easy content management and page building.'
+                    }
+                ],
+                technologies: [
+                    {
+                        title: 'WordPress & WooCommerce',
+                        description: 'Custom WordPress installation with WooCommerce plugin for e-commerce functionality. Optimized for performance with caching and CDN integration.'
+                    },
+                    {
+                        title: 'Custom Theme Development',
+                        description: 'Custom WordPress theme built with PHP, HTML5, CSS3, and JavaScript. Integrated with Elementor for flexible page building and content management.'
+                    },
+                    {
+                        title: 'Database & Hosting',
+                        description: 'MySQL database optimization with proper indexing. Configured on high-performance hosting with SSL certificate and regular backups.'
+                    },
+                    {
+                        title: 'Payment Integration',
+                        description: 'Multiple WooCommerce payment gateways including Stripe, PayPal, and local payment methods for customer convenience and security.'
+                    },
+                    {
+                        title: 'SEO & Performance',
+                        description: 'Yoast SEO integration, image optimization, lazy loading, and caching plugins for optimal performance and search engine visibility.'
+                    }
+                ],
+                screenshots: [
+                    {
+                        image: 'images/e-hero.png',
+                        caption: 'Homepage - Custom WordPress Theme'
+                    },
+                    {
+                        image: 'images/e-products.png',
+                        caption: 'Product Catalog & Shopping Cart'
+                    }
+                ],
+                challenges: [
+                    {
+                        title: 'WooCommerce Performance Optimization',
+                        solution: 'Implemented caching strategies, database optimization, and image compression to ensure fast loading times even with large product catalogs. Used lazy loading and CDN for better performance.'
+                    },
+                    {
+                        title: 'Custom Theme Development',
+                        solution: 'Built a custom WordPress theme from scratch following WordPress coding standards and best practices. Ensured compatibility with WooCommerce hooks and filters for seamless integration.'
+                    },
+                    {
+                        title: 'Payment Gateway Integration',
+                        solution: 'Configured multiple WooCommerce payment gateways with proper security measures and PCI compliance. Implemented webhook handling for payment confirmations and order updates.'
+                    },
+                    {
+                        title: 'Mobile Responsiveness',
+                        solution: 'Designed mobile-first responsive layouts ensuring perfect display across all devices. Optimized touch interactions and simplified checkout process for mobile users.'
+                    }
+                ],
+                results: [
+                    'Processed over 10,000 successful transactions through WooCommerce',
+                    'Achieved 99.9% uptime with optimized WordPress hosting',
+                    'Reduced cart abandonment rate by 25% with improved UX',
+                    'Increased mobile conversion rate by 40% with responsive design',
+                    'Page load time under 3 seconds with optimization',
+                    'Ranked on first page of Google for target keywords with SEO optimization'
                 ]
             }
         };
@@ -292,6 +527,16 @@
                 const codeLink = document.getElementById('code-link');
                 codeLink.href = project.codeLink;
                 codeLink.style.display = 'inline-flex';
+            }
+            if (project.figmaLink) {
+                const figmaLink = document.getElementById('figma-link');
+                figmaLink.href = project.figmaLink;
+                figmaLink.style.display = 'inline-flex';
+            }
+            if (project.codeLink2) {
+                const codeLink2 = document.getElementById('code-link-2');
+                codeLink2.href = project.codeLink2;
+                codeLink2.style.display = 'inline-flex';
             }
 
             // Update main image

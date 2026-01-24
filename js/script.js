@@ -303,7 +303,7 @@ $(document).ready(function() {
         $('<style id="image-load-styles">')
             .html(`
                 img {
-                    opacity: 0;
+                    opacity: 1;
                     transition: opacity 0.5s ease;
                 }
                 img.loaded {
