@@ -1592,3 +1592,224 @@ body.dark-mode #themeToggle i {
         transform: translateY(-2px) !important;
     }
 }
+
+/* Logo Showcase Section */
+.logo-showcase {
+    padding: 100px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--bg-primary);
+}
+
+.logo-showcase-container {
+    width: 100%;
+}
+
+.logo-showcase-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.logo-showcase-header h2 {
+    color: var(--text-tertiary);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.logo-showcase-header h3 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.logo-showcase-header p {
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.logo-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.logo-preview-item {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+body.light-mode .logo-preview-item {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.logo-preview-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(74, 124, 255, 0.2);
+}
+
+.logo-preview-image {
+    height: 200px;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.logo-preview-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.logo-preview-item:hover .logo-preview-image img {
+    transform: scale(1.15);
+}
+
+.logo-preview-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.logo-preview-info h4 {
+    font-size: 16px;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.logo-preview-info span {
+    font-size: 13px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.logo-cta {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.logo-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 124, 255, 0.4);
+    margin-bottom: 15px;
+}
+
+.logo-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 124, 255, 0.5);
+}
+
+.logo-cta-button i {
+    transition: transform 0.3s ease;
+}
+
+.logo-cta-button:hover i {
+    transform: translateX(5px);
+}
+
+.logo-cta-text {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .logo-showcase {
+        padding: 80px 40px;
+    }
+
+    .logo-preview-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-showcase {
+        padding: 60px 30px;
+    }
+
+    .logo-showcase-header h3 {
+        font-size: 32px;
+    }
+
+    .logo-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .logo-preview-image {
+        height: 160px;
+        padding: 20px;
+    }
+
+    .logo-cta-button {
+        padding: 15px 30px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-showcase {
+        padding: 50px 20px;
+    }
+
+    .logo-showcase-header h3 {
+        font-size: 28px;
+    }
+
+    .logo-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .logo-preview-image {
+        height: 180px;
+    }
+
+    .logo-cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Disable hover effects on mobile/tablet */
+@media (max-width: 768px) {
+    .logo-preview-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .logo-preview-item:hover .logo-preview-image img {
+        transform: none !important;
+    }
+
+    .logo-cta-button:hover {
+        transform: translateY(-1px) !important;
+    }
+}
