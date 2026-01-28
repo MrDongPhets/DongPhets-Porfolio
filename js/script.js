@@ -27,13 +27,28 @@ $(document).ready(function() {
         }
     });
 
-    // ===== PAGE LOADER =====
+    // ===== PAGE LOADER 
     $(window).on('load', function() {
         setTimeout(function() {
             $('.page-loader').addClass('hide');
+            // Force removal after transition completes
+            setTimeout(function() {
+                $('.page-loader').css('display', 'none');
+            }, 500);
         }, 1000);
     });
 
+    // Fallback: If page takes too long to load, hide loader anyway
+    $(document).ready(function() {
+        setTimeout(function() {
+            if (!$('.page-loader').hasClass('hide')) {
+                $('.page-loader').addClass('hide');
+                setTimeout(function() {
+                    $('.page-loader').css('display', 'none');
+                }, 500);
+            }
+        }, 3000); // Hide after 3 seconds maximum
+    });
     // ===== NAVIGATION =====
     // Navbar scroll effect
     $(window).scroll(function() {
