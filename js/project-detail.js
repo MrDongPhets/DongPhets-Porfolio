@@ -290,7 +290,7 @@
                 category: 'WordPress Development',
                 tags: ['WordPress', 'Custom Theme', 'SEO', 'PHP', 'Web Design','Figma'],
                 image: 'images/blog1.png',
-                liveLink: 'https://blog.mrdongphets.com',
+                liveLink: 'https://blogtemplate.mustarddigitals.com',
                 figmaLink: 'https://www.figma.com/design/BbLhDIQ3oP9mTl9OcEbwVZ/Projects?node-id=16-726&p=f&t=vdKwC772pah7NI4u-0',
                 codeLink: null,
                 overview: [
@@ -391,7 +391,7 @@
                 category: 'WordPress Development',
                 tags: ['WordPress', 'WooCommerce', 'PHP', 'Custom Theme', 'Elementor'],
                 image: 'images/e-hero.png',
-                liveLink: 'https://ecomerce.mrdongphets.com/',
+                liveLink: 'https://rollarnlantern.mustarddigitals.com',
                 codeLink: null,
                 overview: [
                     'A modern WordPress e-commerce platform built for a growing retail business, featuring custom WooCommerce integration, product management, shopping cart, secure checkout, and payment processing.',
