@@ -8,8 +8,8 @@
                 category: 'Full Stack Development',
                 tags: ['NextJs', 'NodeJs', 'Supabase', 'Postgres', 'Shadcn'],
                 image: 'images/pos5.png',
-                liveLink: 'https://kitapos.vercel.app',
-                codeLink: 'https://github.com/MrDongPhets/KITAPOS',
+                liveLink: 'https://tindaposph.mustarddigitals.com',
+                // codeLink: 'https://github.com/MrDongPhets/KITAPOS',
                 overview: [
                     'This Point of Sale (POS) system is a modern web application designed to streamline business operations for retail and service industries. Built with cutting-edge technologies, it provides a seamless experience for managing sales, inventory, and customer relationships.',
                     'The system features real-time data synchronization, intuitive user interface, and robust backend infrastructure to handle high-volume transactions efficiently.'
