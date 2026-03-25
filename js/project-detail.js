@@ -6,7 +6,7 @@
                 client: 'Personal Project',
                 year: '2024',
                 category: 'Full Stack Development',
-                tags: ['NextJs', 'NodeJs', 'Supabase', 'Postgres', 'Shadcn'],
+                tags: ['React', 'Node.js', 'Express.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'JWT', 'Tailwind', 'Electron', 'Capacitor', 'DigitalOcean', 'Vercel', 'Cloudflare'],
                 image: 'images/pos5.png',
                 liveLink: 'https://tindaposph.mustarddigitals.com',
                 // codeLink: 'https://github.com/MrDongPhets/KITAPOS',
@@ -39,19 +39,23 @@
                 technologies: [
                     {
                         title: 'Frontend',
-                        description: 'Next.js for server-side rendering and optimal performance, Shadcn UI for beautiful, accessible components, and Tailwind CSS for responsive styling.'
+                        description: 'React with TypeScript for a type-safe, component-driven UI. Tailwind CSS for responsive and utility-first styling.'
                     },
                     {
                         title: 'Backend',
-                        description: 'Node.js runtime environment with Supabase for authentication and real-time database functionality.'
+                        description: 'Node.js with Express.js as the REST API framework. JWT for secure authentication and session management.'
                     },
                     {
                         title: 'Database',
-                        description: 'PostgreSQL for robust data management with advanced querying capabilities.'
+                        description: 'Supabase (PostgreSQL) for robust relational data management with real-time capabilities.'
+                    },
+                    {
+                        title: 'Desktop & Mobile',
+                        description: 'Electron for cross-platform desktop app packaging. Capacitor for deploying the app as a native mobile application.'
                     },
                     {
                         title: 'Deployment',
-                        description: 'Vercel for frontend hosting with automatic deployments and Supabase cloud for backend services.'
+                        description: 'Vercel for frontend hosting, DigitalOcean for backend infrastructure, and Cloudflare for DNS, CDN, and domain management.'
                     }
                 ],
                 screenshots: [
@@ -283,13 +287,13 @@
                 ]
             },
             'blog-platform': {
-                title: 'Mountain Multi-Purpose Website Template',
+                title: 'Kawasan Tour Blog and Booking Website Template',
                 subtitle: 'Modern multi-purpose WordPress template with stunning hero sections, service showcases, and gallery layouts perfect for creative businesses.',
                 client: 'Template Marketplace',
                 year: '2024',
                 category: 'WordPress Development',
                 tags: ['WordPress', 'Custom Theme', 'SEO', 'PHP', 'Web Design','Figma'],
-                image: 'images/blog1.png',
+                image: 'images/kawasan2.png',
                 liveLink: 'https://blogtemplate.mustarddigitals.com',
                 figmaLink: 'https://www.figma.com/design/BbLhDIQ3oP9mTl9OcEbwVZ/Projects?node-id=16-726&p=f&t=vdKwC772pah7NI4u-0',
                 codeLink: null,
@@ -347,11 +351,11 @@
                 ],
                 screenshots: [
                     {
-                        image: 'images/blog1.png',
+                        image: 'images/kawasan2.png',
                         caption: 'Hero Section - Full-Screen with Mountain Background'
                     },
                     {
-                        image: 'images/blog.png',
+                        image: 'images/kawasan1.png',
                         caption: 'About Section'
                     }
                 ],
