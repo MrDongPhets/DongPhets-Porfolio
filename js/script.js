@@ -259,7 +259,7 @@ $(document).ready(function() {
 
     function showDownloadNotification() {
         const notification = $('<div class="download-notification">')
-            .html('<i class="fas fa-check-circle"></i> Resume download started!')
+            .html('<i class="fas fa-check-circle"></i> Resume opened in new tab!')
             .appendTo('body');
         
         notification.css({

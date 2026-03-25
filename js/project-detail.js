@@ -101,6 +101,114 @@
                     'Scalable architecture supporting business growth'
                 ]
             },
+            'mustard-portfolio': {
+                title: 'MUSTARD Digitals — Portfolio Website',
+                subtitle: 'Full-stack portfolio and CMS built with React and PHP, featuring a dynamic admin panel, case study pages, and a Supabase-powered backend.',
+                client: 'MUSTARD Digitals (Personal)',
+                year: '2025',
+                category: 'Web Development',
+                tags: ['React', 'Vite', 'PHP', 'Supabase', 'PostgreSQL', 'CSS3', 'Figma', 'Hostinger', 'Cloudflare'],
+                image: 'images/mustard3.png',
+                liveLink: 'https://mustarddigitals.com',
+                figmaLink: null,
+                codeLink: null,
+                overview: [
+                    'A fully custom portfolio website built from the ground up for MUSTARD Digitals — a creative design studio. The site serves as both a public-facing portfolio and a fully functional CMS, letting us manage every piece of content without touching code.',
+                    'The frontend is built in React 18 with Vite for fast builds and hot reload during development. The backend is a lightweight PHP REST API connected to Supabase (PostgreSQL) for the database and Supabase Storage for media. A separate PHP admin panel acts as the CMS, covering everything from hero content to portfolio case studies.'
+                ],
+                features: [
+                    {
+                        title: 'Dynamic CMS Admin Panel',
+                        description: 'A secure PHP admin panel that controls all public-facing content — hero, about, services, portfolio items, testimonials, and site settings — without any code changes. Includes image uploads via Supabase Storage.'
+                    },
+                    {
+                        title: 'Portfolio with Featured Carousel',
+                        description: 'A portfolio gallery with a three-card peek carousel for featured projects, category filter tabs, and a masonry grid. Each item links to a dedicated case study page with gallery, challenge, solution, and results sections.'
+                    },
+                    {
+                        title: '5 Service Detail Pages',
+                        description: 'Individual pages for Web Design, Branding, Video Editing, Content Creation, and Admin Support — each with unique content, feature lists, and a consistent layout driven by a shared ServiceDetailLayout component.'
+                    },
+                    {
+                        title: 'Dark / Light Theme Toggle',
+                        description: 'A persistent theme toggle stored in localStorage with an inline script in the HTML head to apply the preference before the page renders, eliminating any flash of unstyled content on load.'
+                    },
+                    {
+                        title: 'AOS Scroll Animations',
+                        description: 'Animate On Scroll (AOS) integrated across all pages for fade-up and fade-left entry animations. Initialised in the root component and applied consistently via data attributes throughout.'
+                    },
+                    {
+                        title: 'Contact Form with Database Storage',
+                        description: 'A contact form that POSTs to the PHP API, validates server-side, stores the message in Supabase, and surfaces it in the admin panel inbox. Includes a newsletter opt-in field.'
+                    }
+                ],
+                technologies: [
+                    {
+                        title: 'React 18 + Vite',
+                        description: 'The entire frontend is a single-page application built with React 18. Vite handles bundling with a dev-server proxy that forwards /api requests to the local PHP server, removing CORS friction during development.'
+                    },
+                    {
+                        title: 'PHP REST API',
+                        description: 'A thin PHP backend that returns JSON only — no HTML rendering. Each endpoint (home, portfolio, portfolio-detail, services, testimonials, contact) lives in its own file under /api and is routed via .htaccess rewrite rules.'
+                    },
+                    {
+                        title: 'Supabase (PostgreSQL + Storage)',
+                        description: 'All content is stored in Supabase PostgreSQL with Row Level Security policies. Public users can only read active records; the admin panel uses the service role key to bypass RLS. Media files are stored in Supabase Storage buckets.'
+                    },
+                    {
+                        title: 'React Router v6',
+                        description: 'Client-side routing with React Router v6 handles all page navigation. The .htaccess on the server rewrites all non-API, non-admin requests to index.html so deep links and refreshes work correctly in production.'
+                    },
+                    {
+                        title: 'CSS3 (Custom, No Framework)',
+                        description: 'All styles are written from scratch using CSS custom properties for theming, Flexbox and Grid for layout, and scoped CSS files per page. No CSS framework is used — full control over every visual detail.'
+                    }
+                ],
+                screenshots: [
+                    {
+                        image: 'images/mustard3.png',
+                        caption: 'Homepage — Hero Section with Dynamic CMS Content'
+                    },
+                    {
+                        image: 'images/mustard1.png',
+                        caption: 'Portfolio Page — Featured Carousel and Masonry Grid'
+                    },
+                    {
+                        image: 'images/mustard2.png',
+                        caption: 'Case Study Page — Challenge, Gallery, and Results'
+                    },
+                    {
+                        image: 'images/mustard.png',
+                        caption: 'Admin Panel — CMS Dashboard'
+                    }
+                ],
+                challenges: [
+                    {
+                        title: 'Connecting React SPA to a PHP Backend on Shared Hosting',
+                        solution: 'Used Vite\'s built-in proxy config to forward /api calls to the PHP dev server locally, then deployed the React build output alongside the PHP files on Hostinger with .htaccess rules to handle both SPA routing and API routing without conflicts.'
+                    },
+                    {
+                        title: 'Dark Mode Flash on Page Load',
+                        solution: 'Injected an inline blocking script in index.html\'s <head> that reads localStorage before React mounts. This applies the correct theme class synchronously, preventing any flash of the default light theme before hydration.'
+                    },
+                    {
+                        title: 'Featured Carousel with Smooth Peek Transitions',
+                        solution: 'Built a custom peek carousel with CSS keyframe animations for sliding transitions between three visible cards. Used React state for direction tracking (next/prev) and an interval-based auto-advance with proper cleanup on unmount.'
+                    },
+                    {
+                        title: 'Supabase Row Level Security with PHP Service Role',
+                        solution: 'Configured RLS policies so anonymous reads are limited to active records only. The PHP admin panel uses the service role key (kept server-side in .env) to write and read without restriction, keeping credentials out of the frontend bundle.'
+                    }
+                ],
+                results: [
+                    'Full CMS — every piece of content manageable without code changes',
+                    'Sub-2s page load on Hostinger shared hosting with Vite-optimised build',
+                    'Zero flash of unstyled content on dark/light theme toggle',
+                    'Carousel, filters, and case study pages all driven from a single Supabase database',
+                    'Admin panel covers hero, about, services, portfolio, testimonials, and contact inbox',
+                    'Deployed to production with React Router deep-link support via .htaccess'
+                ]
+            },
             'philhealth-ui': {
                 title: 'Philhealth UI Design',
                 subtitle: 'Modern and user-friendly interface design for healthcare management system with focus on accessibility and ease of use.',
