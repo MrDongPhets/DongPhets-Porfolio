@@ -195,6 +195,16 @@ $(document).ready(function() {
                 }
             });
 
+        // Mobile tap support — click anywhere on the card to navigate
+        $('.portfolio-item, .portfolio-item-1').on('click', function(e) {
+            if (!$(e.target).closest('a').length) {
+                const projectId = $(this).data('project-id');
+                if (projectId) {
+                    window.location.href = `project-detail.html?project=${projectId}`;
+                }
+            }
+        });
+
         if (!$('#portfolio-overlay-styles').length) {
             $('<style id="portfolio-overlay-styles">')
                 .html(`
